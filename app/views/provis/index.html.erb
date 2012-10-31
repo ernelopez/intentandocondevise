@@ -1,0 +1,24 @@
+<h1>Listing provis</h1>
+
+<!-- <table>
+  <tr>
+    <th>Prov</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @provis.each do |provi| %>
+  <tr>
+    <td><%= provi.prov %></td>
+    <td><%= link_to 'Show', provi %></td>
+    <td><%= link_to 'Edit', edit_provi_path(provi) %></td>
+    <td><%= link_to 'Destroy', provi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br /> -->
+
+<%= link_to 'New Provi', new_provi_path %>
+<%= link_to "Sign out", destroy_user_session_path %>
