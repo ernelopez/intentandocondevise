@@ -1,8 +1,7 @@
 Md::Application.routes.draw do
   resources :provis
   devise_for :users
-  resources :users
-
+	
   get "home/index"
 
   # The priority is based upon order of creation:
@@ -56,6 +55,7 @@ Md::Application.routes.draw do
   # just remember to delete public/index.html.
 
  root :to => "home#index"
+ match 'gestion'        => 'gestion#index'
 
 
 

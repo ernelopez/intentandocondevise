@@ -1,3 +1,6 @@
 <h1>Home#index</h1>
-<%= link_to "provis", provis_path %>
-<%= link_to "UUU", users_path %>
+
+
+<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+
+<%= link_to "Gestion", :controller => "gestion", :action => "index" %>
