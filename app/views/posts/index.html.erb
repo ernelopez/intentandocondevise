@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="well">
+
+    <h1>Listado de obras</h1>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li> <%= link_to 'Nueva obra', new_post_path %> </li>
+          <li> <%= link_to "Gestionar provincias", provis_path %> </li>
+          <li> <%= link_to "Gestionar escuelas", escuelas_path %> </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <table class="table">
+      <tr>
+        <th>Obra</th>
+        <th>Autor</th>
+        <th>Fecha</th>
+        <th>Escuela</th>
+        <th>Curso</th>
+        <th>Provincia</th>
+        <th>Docente</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.obra %></td>
+        <td><%= post.autor %></td>
+        <td><%= post.fecha %></td>
+        <td><%= post.escuela.institu %></td>
+        <td><%= post.curso %></td>
+        <td><%= post.escuela.provi.prov %></td>
+        <td><%= post.user.nombre %></td>
+        <td><%= link_to 'Mostrar', post %></td>
+        <td><%= link_to 'Editar', edit_post_path(post) %></td>
+        <td><%= link_to 'Eliminar', post, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+    <% end %>
+    </table>
+
+  </div>
+</div>

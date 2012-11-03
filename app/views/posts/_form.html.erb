@@ -1,0 +1,57 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table class="table">
+  <tr class="field">
+    <td><%= f.label :obra %></td>
+    <td><%= f.text_field :obra %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :autor %></td>
+    <td><%= f.text_field :autor %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :fecha %></td>
+    <td><%= f.date_select :fecha %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :codigo %></td>
+    <td><%= f.text_area :codigo %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :escuela_id %></td>
+    <td><%= f.select( :escuela_id, options_for_select( Escuela.all.map { |e| [e.institu, e.id] } ) ) %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :curso %></td>
+    <td><%= f.text_field :curso %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :user_id %></td>
+    <td><%= f.select( :user_id, options_for_select( User.all.map { |d| [d.nombre, d.id] } ) ) %></td>
+  <tr class="field">
+    <td><%= f.label :comentario %></td>
+    <td><%= f.text_area :comentario %></td>
+  </tr>
+  <tr class="field">
+    <td><%= f.label :conocimiento %></td>
+    <td><%= f.text_area :conocimiento %></td>
+  </tr>
+
+  <tr class="actions">
+    <td><%= f.submit %></td>
+    <td></td>
+  </tr>
+</table>
+
+<% end %>

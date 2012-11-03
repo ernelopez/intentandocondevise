@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="well">
+    <h1>Listado de escuelas</h1>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li> <%= link_to 'Agregar escuela', new_escuela_path %> </li>
+          <li> <%= link_to "Gestionar provincias", provis_path %> </li>
+
+          <li> <%= link_to "Gestionar obras", posts_path %></li>
+        </ul>
+      </div>
+    </div>
+
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Institu</th>
+        <th>IdProvi</th>
+        <th>Prov</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @escuelas.each do |escuela| %>
+      <tr>
+        <td><%= escuela.id %></td>
+        <td><%= escuela.institu %></td>
+        <td><%= escuela.provi_id %></td>
+        <td><%= escuela.provi.prov %></td>
+        <td><%= link_to 'Mostrar', escuela %></td>
+        <td><%= link_to 'Editar', edit_escuela_path(escuela) %></td>
+        <td><%= link_to 'Eliminar', escuela, method: :delete, data: { confirm: '¿Está seguro?' } %></td>
+      </tr>
+      <% end %>
+    </table>
+    </div>
+</div>

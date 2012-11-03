@@ -1,4 +1,8 @@
 Md::Application.routes.draw do
+  resources :posts
+
+  resources :escuelas
+
   resources :provis
   devise_for :users
 	
@@ -54,10 +58,17 @@ Md::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
- root :to => "home#index"
- match 'gestion'        => 'gestion#index'
+  root :to => "home#index"
+  match '/' => "home#index", :as => :home
 
+  match 'gestion'        => 'gestion#index'
 
+  match 'project'        => 'project#index'
+  match 'listaesc'       => 'escuelas#listaesc'
+
+  # Send project code (why post are project?)
+  match '/posts/:id/code' => 'posts#show_code', :as => 'show_code'
+  match '/escuelas/:id/posts' => 'posts#obrasxesc', :as => 'obrasxesc'
 
   # See how all your routes lay out with "rake routes"
 

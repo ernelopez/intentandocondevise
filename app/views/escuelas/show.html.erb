@@ -1,0 +1,21 @@
+<div class="container">
+<div class="well">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Institu:</b>
+  <%= @escuela.institu %>
+</p>
+
+<p>
+  <b>Provi:</b>
+  <%= @escuela.provi_id %>
+</p>
+
+
+<%= link_to 'Editar', edit_escuela_path(@escuela) %> |
+<%= link_to 'Volver', escuelas_path %>
+
+</div>
+</div>

@@ -1,24 +1,39 @@
-<h1>Listing provis</h1>
+<div class="container">
+  <div class="well">
 
-<!-- <table>
-  <tr>
-    <th>Prov</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <h1>Listado de provincias</h1>
 
-<% @provis.each do |provi| %>
-  <tr>
-    <td><%= provi.prov %></td>
-    <td><%= link_to 'Show', provi %></td>
-    <td><%= link_to 'Edit', edit_provi_path(provi) %></td>
-    <td><%= link_to 'Destroy', provi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
+          <li> <%= link_to 'Agregar provincia', new_provi_path %> </li>
+          <li> <%= link_to "Gestionar escuelas", escuelas_path %> </li>
+          <li> <%= link_to "Gestionar obras", posts_path %></li>
+        </ul>
+      </div>
+    </div>
 
-<br /> -->
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Prov</th>
+        <% if user_signed_in? && current_user.role == 'Admin'%>
+        <th></th>
+        <th></th>
+        <% end %>
+      </tr>
 
-<%= link_to 'New Provi', new_provi_path %>
-<%= link_to "Sign out", destroy_user_session_path , :method => :delete %>
+    <% @provis.each do |provi| %>
+      <tr>
+        <td><%= provi.id %></td>
+        <td><%= provi.prov %></td>
+        <% if user_signed_in? && current_user.role == 'Admin'%>
+        <td><%= link_to 'Editar', edit_provi_path(provi) %></td>
+        <td><%= link_to 'Eliminar', provi, method: :delete, data: { confirm: '¿Está seguro' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </table>
+
+  </div>
+</div>

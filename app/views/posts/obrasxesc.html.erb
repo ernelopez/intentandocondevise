@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="well">
+
+    <% if p = @posts.first %>
+
+      <h3>Obras de la <%= p.escuela.institu %> de <%= p.escuela.provi.prov %> </h3>
+
+      <table class="table">
+        <tr>
+          <th>Obra</th>
+          <th>Autor</th>
+          <th>Fecha</th>
+          <th>Escuela</th>
+          <th>Curso</th>
+          <th>Provincia</th>
+          <th>Docente</th>
+          <th></th>
+        </tr>
+
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.obra %></td>
+          <td><%= post.autor %></td>
+          <td><%= post.fecha %></td>
+          <td><%= post.escuela.institu %></td>
+          <td><%= post.curso %></td>
+          <td><%= post.escuela.provi.prov %></td>
+          <td><%= post.user.nombre %></td>
+          <td><%= link_to 'Mostrar', post %></td>
+        </tr>
+      <% end %>
+
+        <tr></tr>
+
+      </table>
+
+    <% else %>
+
+      <p>La escuela no tiene obras cargadas en este momento.</p>
+      <!-- Como pongo el nombre de la escuela?? -->
+
+    <% end %>
+
+    <%= link_to "Volver a escuelas", :controller => "escuelas", :action => "listaesc" %>
+
+  </div>
+</div>

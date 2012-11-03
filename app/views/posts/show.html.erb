@@ -1,0 +1,61 @@
+<div class="container">
+<div class="well">
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">La Obra</a></li>
+    <li><a href="#tab2" data-toggle="tab">El Código</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+      <p>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span4">
+              <h3> <%= @post.obra %> </h3>
+              <p>Autor: <%= @post.autor %> </p>
+              <p>Escuela: <%= @post.escuela.institu %> </p>
+              <p>Curso: <%= @post.curso %> </p>
+              <p>Año: <%= @post.fecha.year %></p>
+              <p>Docente: <%= @post.user.nombre %></p>
+              <p>Provincia: <%= @post.escuela.provi.prov %> </p>
+              <p>Fecha de creación: <%= @post.fecha %></p>
+              <p>Comentario: <%= @post.comentario %></p>
+              <p>Conocimientos: <%= @post.conocimiento %></p>
+            </div>
+            <div class="span8">
+               <canvas data-processing-sources="<%= show_code_path(@post.id) %>"></canvas>
+            </div>
+          </div>
+        </div>
+      </p>
+    </div>
+    <div class="tab-pane" id="tab2">
+      <p>
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span4">
+              <h3> <%= @post.obra %> </h3>
+              <p>Autor: <%= @post.autor %> </p>
+              <p>Escuela: <%= @post.escuela.institu %> </p>
+              <p>Curso: <%= @post.curso %> </p>
+              <p>Año: <%= @post.fecha.year %></p>
+              <p>Docente: <%= @post.user.nombre %></p>
+              <p>Provincia: <%= @post.escuela.provi.prov %> </p>
+              <p>Fecha de creación: <%= @post.fecha %></p>
+              <p>Comentario: <%= @post.comentario %></p>
+              <p>Conocimientos: <%= @post.conocimiento %></p>
+            </div>
+            <div class="span8">
+              <!-- ACA EL CODIGO -->
+              <pre class="prettyprint lang-java"><%= @post.codigo %></pre>
+            </div>
+          </div>
+        </div>
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>

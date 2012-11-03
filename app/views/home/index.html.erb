@@ -1,6 +1,5 @@
-<h1>Home#index</h1>
-
-
-<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-
-<%= link_to "Gestion", :controller => "gestion", :action => "index" %>
+<% if @featured_post %>
+<div class="well">
+ <%= render 'obracero' %>
+</div>
+<% end %>

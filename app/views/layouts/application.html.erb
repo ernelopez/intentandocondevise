@@ -1,16 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Md</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>MAxProg</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <style type="text/css">
+    body {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+  </style>
+  <title>Maxprog</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <% if notice || alert %>
+  <div class="container">  
+    <div class="well">
+      <p><%= notice %></p>
+      <p><%= alert %></p>
+    </div>
+  </div>
+  <% end %>
 </head>
-<body>
 
-<%= yield %>
+<body onload="prettyPrint()">
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>	
+      <div class="brand"> <%= link_to "MAxProg", home_path %> </div>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"> <%= link_to "Inicio", home_path %>  </li>
+            <li class="active"> <%= link_to "El proyecto", project_path %>  </li>
+            <li class="active">  <%= link_to "Escuelas", listaesc_path %>  </li>
+          </ul>
+        <div class="navbar-form pull-right">
+          <% if user_signed_in? %>
+            <div class="btn"> Conectado como: <%= current_user.nombre %> / <%= current_user.role %> </div>
+            <div class="btn"><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %> </div>
+            <div class="btn"> <%= link_to "Gestionar", gestion_path %> </div>
+          <% else %>
+            <div class="btn"> <%= link_to "Identificarse", gestion_path %> </div>
+          <% end %>
+        </div>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <%= yield %>
+</div>
+
+<div class="container">
+
+    <div class="row">
+      <div class="span4"> <img src="/logos/eimat.gif" alt="Eimat" width="75"> </div>
+      <div class="span4 pagination-centered"> <img src="/logos/conectar.gif" alt="ConectarIgualdad" width="250"> </div>
+      <div class="span4 pagination-right"> <img src="/logos/processing.png" alt="Processing.org" width="50"> </div>
+    </div>
+
+</div>
+
+
+
+  <script src="/bootstrap/jquery.js"></script>
+  <script src="/bootstrap/bootstrap-transition.js"></script>
+  <script src="/bootstrap/bootstrap-alert.js"></script>
+  <script src="/bootstrap/bootstrap-modal.js"></script>
+  <script src="/bootstrap/bootstrap-dropdown.js"></script>
+  <script src="/bootstrap/bootstrap-scrollspy.js"></script>
+  <script src="/bootstrap/bootstrap-tab.js"></script>
+  <script src="/bootstrap/bootstrap-tooltip.js"></script>
+  <script src="/bootstrap/bootstrap-popover.js"></script>
+  <script src="/bootstrap/bootstrap-button.js"></script>
+  <script src="/bootstrap/bootstrap-collapse.js"></script>
+  <script src="/bootstrap/bootstrap-carousel.js"></script>
+  <script src="/bootstrap/bootstrap-typeahead.js"></script>
+  <script src="/processing-1.4.1.min.js"></script>
+  <link href="/bootstrap/bootstrap.css" rel="stylesheet">
+  <link href="/bootstrap/bootstrap-responsive.css" rel="stylesheet">
+
+  <link href="/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="/prettify.js"></script>
 
 </body>
 </html>

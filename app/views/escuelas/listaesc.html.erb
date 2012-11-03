@@ -1,0 +1,24 @@
+<div class="container">
+<div class="well">
+
+<h3>Las escuelas del proyecto</h3>
+<table class="table">
+  <tr>
+    <th>Institución</th>
+    <th>Provincia</th>
+    <th></th>
+  </tr>
+
+<% @escuelas.each do |escuela| %>
+  <tr>
+    <td><%= escuela.institu %></td>
+    <td><%= escuela.provi.prov %></td>
+    <td> <%= link_to 'Ver obras', obrasxesc_path(escuela.id) %> </td>
+ 
+  </tr>
+<% end %>
+</table>
+
+</div>
+</div>
+

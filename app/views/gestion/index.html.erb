@@ -1,4 +1,21 @@
-<h1>Gestion</h1>
+<div class="well">
+  <% if current_user.role == 'Admin'%>
+
+  <h3>Gestión de administrador</h3>
+  <div> <%= link_to "Gestionar provincias", provis_path %> </div>
+  <div> <%= link_to "Gestionar escuelas", escuelas_path %> </div>
+  <div> <%= link_to "Gestionar obras", posts_path %> </div>
+ 
+  <% end %>
 
 
-<%= link_to "provis", provis_path %>
+  <% if current_user.role == 'Profe'%>
+
+  <h3>Gestión de administrador</h3>
+  <div> <%= link_to "Cargar nueva obra", new_post_path %> </div>
+ 
+  <% end %>
+
+  
+
+</div>
