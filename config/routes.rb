@@ -4,7 +4,10 @@ Md::Application.routes.draw do
   resources :escuelas
 
   resources :provis
+
   devise_for :users
+  resources :users
+
 	
   get "home/index"
 

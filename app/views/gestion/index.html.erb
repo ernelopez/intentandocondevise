@@ -5,13 +5,14 @@
   <div> <%= link_to "Gestionar provincias", provis_path %> </div>
   <div> <%= link_to "Gestionar escuelas", escuelas_path %> </div>
   <div> <%= link_to "Gestionar obras", posts_path %> </div>
+  <div> <%= link_to "Gestionar usuarios", users_path %> </div>
  
   <% end %>
 
 
   <% if current_user.role == 'Profe'%>
 
-  <h3>Gestión de administrador</h3>
+  <h3>Gestión de usuario</h3>
   <div> <%= link_to "Cargar nueva obra", new_post_path %> </div>
  
   <% end %>

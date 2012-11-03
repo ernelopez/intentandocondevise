@@ -1,17 +1,19 @@
 class UsersController < ApplicationController
 
+before_filter :require_admin
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+      @users = User.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @users }
-    end
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @users }
+      end
   end
 
-  # GET /users/1
+  # GET /users/1	
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
@@ -81,4 +83,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+    
 end
